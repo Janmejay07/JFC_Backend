@@ -1,6 +1,6 @@
 // Import dependencies
 import express from 'express';
-import PlayerProfile from '../models/PlayerProfile.js';  // Update with the correct path to the model file
+import PlayerProfile from '../models/playerProfile.js';  // Update with the correct path to the model file
 
 const router = express.Router();
 
