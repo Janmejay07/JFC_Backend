@@ -43,11 +43,13 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
   });
 
 // Middleware
-app.use(express.json());  // Handles JSON parsing
-app.use(cors({ 
-  origin: process.env.FrontendURL, 
-  credentials: true 
-}));  // CORS setup for frontend
+app.use(cors({
+  origin: process.env.FrontendURL || '*',  // Default to '*' for testing
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed headers
+  credentials: true,
+}));
+  // CORS setup for frontend
 app.use(cookieParser());  // Cookie parsing (optional if using cookies)
 
 // Static Files
