@@ -44,10 +44,15 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://jfc-nrk2k488w-janmejay-kumars-projects.vercel.app'], // Allow only your frontend URL
+  origin: [
+    'https://jfc.vercel.app',
+    'https://jfc-git-main-janmejay-kumars-projects.vercel.app',
+    'https://jfc-ri0v0hkap-janmejay-kumars-projects.vercel.app',
+    'http://localhost:3000' // Keep this for local development
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // If using cookies or authentication
+  credentials: true, // Required if using authentication or cookies
 }));
 
   // CORS setup for frontend
