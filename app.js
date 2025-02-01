@@ -48,7 +48,7 @@ app.use(cors({
     'https://jfc.vercel.app',
     'https://jfc-git-main-janmejay-kumars-projects.vercel.app',
     'https://jfc-ri0v0hkap-janmejay-kumars-projects.vercel.app',
-    'http://localhost:3000' // Keep this for local development
+    'http://localhost:5173' // Keep this for local development
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
