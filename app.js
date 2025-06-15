@@ -34,8 +34,6 @@ if (!MONGODB_URI) {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
-
 // Middleware
 app.use(cors({
   origin: [
@@ -49,8 +47,11 @@ app.use(cors({
   credentials: true, // Required if using authentication or cookies
 }));
 
-  // CORS setup for frontend
-app.use(cookieParser());  // Cookie parsing (optional if using cookies)
+// ADD THESE LINES - JSON parsing middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(cookieParser());  // Cookie parsing
 
 // Static Files
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
@@ -90,11 +91,9 @@ app.use((err, req, res, next) => {
   const response = {
     message: 'Something went wrong!'
   };
-
   if (process.env.NODE_ENV !== 'production') {
     response.error = err.message;
   }
-
   res.status(err.status || 500).json(response);
 });
 
