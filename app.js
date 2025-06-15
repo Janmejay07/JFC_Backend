@@ -34,13 +34,7 @@ if (!MONGODB_URI) {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// MongoDB Connection
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB successfully'))
-  .catch((err) => {
-    console.error('Failed to connect to MongoDB:', err);
-    process.exit(1);
-  });
+
 
 // Middleware
 app.use(cors({
